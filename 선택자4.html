@@ -1,0 +1,52 @@
+<style>
+    th {
+        background-color: lightgray;
+    }
+    tr:nth-child(2) td:not(td:first-child) {
+        background-color: yellow;
+    }
+    tr:nth-child(3) td:not(:last-child) {
+        background-color: green;
+    }
+    tr:nth-child(4) td:not(:nth-child(3)) {
+        background-color: cyan;
+    }
+    tr:nth-child(5) td:not(:is(:last-child,:first-child)) {
+        background-color: orange;
+    }
+</style>
+
+<body>
+    <table border="1">
+        <tr>
+            <th>구분</th>
+            <th>A</th>
+            <th>B</th>
+            <th>C</th>
+        </tr>
+        <tr>
+            <td>가</td>
+            <td>10</td>
+            <td>10</td>
+            <td>10</td>
+        </tr>
+        <tr>
+            <td>나</td>
+            <td>20</td>
+            <td>20</td>
+            <td>20</td>
+        </tr>
+        <tr>
+            <td>다</td>
+            <td>30</td>
+            <td>30</td>
+            <td>30</td>
+        </tr>
+        <tr>
+            <td>계</td>
+            <td>60</td>
+            <td>60</td>
+            <td>60</td>
+        </tr>
+    </table>
+</body>

@@ -1,0 +1,19 @@
+<body>
+    <h1>의견을 남겨주세요</h1>
+    <form action="http://ggoreb.com/quiz/html/receive.jsp" method="post">
+        <p>이름: <input type="text" name="name" required></p>
+        <p>연락처: <input type="text" name="contact" pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}" required></p>
+        <p>관심 서비스:
+            <select name="service">
+                <option value=" ">선택</option>
+                <option value="배송">배송</option>
+                <option value="product">상품</option>
+                <option value="etc">기타</option>
+            </select>
+        </p>
+        <p>상세 의견:<br>
+            <textarea maxlength="380" placeholder="380자 이내로 입력해주세요" name="message"></textarea>
+        </p>
+        <p><button type="submit">전송</button></p>
+    </form>
+</body>

@@ -1,0 +1,23 @@
+<style>
+    section button:not(.ghost):is(:hover,:focus)+span{
+        color: red;
+        font-weight: bold;
+        text-decoration: underline;
+    }
+</style>
+
+<body>
+    <button class="primary">외부 확인</button>
+    <span>외부 메시지</span>
+    <section class="form-section">
+        <h2>내부 버튼</h2>
+        <div class="button-area">
+            <button class="primary">확인</button>
+            <span>확인 메시지</span><br>
+            <button class="secondary">취소</button>
+            <span>취소 메시지</span><br>
+            <button class="ghost">임시</button>
+            <span>임시 메시지</span>
+        </div>
+    </section>
+</body>

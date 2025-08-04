@@ -1,0 +1,38 @@
+<style>
+    .box li:not(.skip, .no-style) {
+        background-color: lavender;
+        color: navy;
+        font-weight: bold;
+    }
+
+    .form>input:not([data-skip=true])+label {
+        text-decoration: underline;
+        color: teal;
+        font-style: italic;
+    }
+</style>
+
+<body>
+    <ul class="menu">
+        <li>외부 메뉴1</li>
+        <li class="skip">외부 메뉴2</li>
+    </ul>
+    <div class="box">
+        <h2>오늘의 항목</h2>
+        <ul>
+            <li>항목 A</li>
+            <li class="skip">항목 B</li>
+            <li class="no-style">항목 C</li>
+            <li>항목 D</li>
+            <li class="no-style skip">항목 E</li>
+        </ul>
+    </div>
+    <div class="form">
+        <input type="checkbox" id="agree">
+        <label for="agree">약관 동의</label><br>
+        <input type="checkbox" id="ads" data-skip="true">
+        <label for="ads">광고 수신 동의</label><br>
+        <input type="checkbox" id="privacy">
+        <label for="privacy">개인정보 제공 동의</label><br>
+    </div>
+</body>

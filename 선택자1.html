@@ -1,0 +1,55 @@
+<style>
+    ol li:nth-child(1) {
+        color: red;
+    }
+    ol li:nth-child(2) {
+        color: green;
+    }
+    ol li:nth-child(3) {
+        color: blue;
+    }
+    ul li:nth-child(1) {
+        color: orange;
+    }
+    ul li:nth-child(2) {
+        color: purple;
+    }
+    ul li:nth-child(3) {
+        color: cyan;
+    }
+
+    /*
+    ol > li:first-child{color:red;}
+    .first + .second {color: green;}
+        .first:last-child {color: blue;}
+        .third:first-of-type {color:yellow;}
+        ul .second {color:purple}
+        
+
+    */
+</style>
+
+<body>
+    <ol>
+        <li class="first">
+            <h2>1-1</h2>
+        </li>
+        <li class="second">
+            <h2>1-2</h2>
+        </li>
+        <li class="first">
+            <h2>1-3</h2>
+        </li>
+    </ol>
+    <ul>
+        <li class="third">
+            <h2>2-1</h2>
+        </li>
+        <li class="second">
+            <h2>2-2</h2>
+        </li>
+        <li class="third">
+            <h2>2-3</h2>
+        </li>
+    </ul>
+</body>
