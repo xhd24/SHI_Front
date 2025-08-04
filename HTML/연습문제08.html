@@ -1,0 +1,32 @@
+<body>
+    <form action="http://ggoreb.com/http/post.jsp" method="post">
+        <input type="text" name="auth-key" value="1q2w3e4r" />
+        <input type="file" name="file" multiple />
+        <input type="text" name="country_code" pattern="[A-Za-z]{3}" title="Three letter country code" required>
+        <select name="color">
+            <option value="red">빨강</option>
+            <option value="orange" selected>주황</option>
+        </select>
+        <textarea name="message" rows="10" cols="30">The cat was playing in the garden.</textarea>
+        <button type="button" onclick="location='http://www.naver.com'">제출</button>
+        <!--타입을 지정하지 않으면 기본으로 submit임. 따라서 버튼으로 사용하고 싶다면 반드시 type="button"을 명시할 것-->
+        <!-- submit용도라면 form 내에 위치해야하고, 그냥 버튼이라면 form 외부에 존재해도 상관 없음-->
+        <p>오늘의 점심 메뉴 선택</p>
+        <input type="radio" id="a" name="lunch" value="a">
+        <label for="a">짜장</label><br>
+        <input type="radio" id="b" name="lunch" value="b">
+        <label for="b">짬뽕</label><br>
+        <input type="radio" id="c" name="lunch" value="c">
+        <label for="c">볶음밥</label>
+        <p>오늘의 점심 메뉴 선택</p>
+        <label>
+        <input type="radio" name="lunch" value="a">
+        짜장</label><br>
+        <label>
+        <input type="radio" name="lunch" value="b">
+        짬뽕</label><br>
+        <label>
+        <input type="radio" name="lunch" value="c">
+        볶음밥</label>
+    </form>
+</body>
