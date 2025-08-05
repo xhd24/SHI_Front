@@ -1,0 +1,33 @@
+<style>
+    h1 {
+        /*적용됨 - 블록요소이기 때문에*/
+        width: 150px;
+        ;
+    }
+
+    input {
+        /*적용됨 - 인라인요소이지만, 인라인블록임*/
+        width: 150px;
+    }
+
+    span {
+        /*적용안됨 - 인라인요소이기 때문에*/
+        width: 150px;
+    }
+
+    .box {
+        width: 350px;
+        min-width:150px;
+        height: 150px;
+        /* margin: 25px; */
+        /* padding: 25px; */
+        border: 5px solid black;
+        box-sizing: border-box;
+    }
+</style>
+
+<body>
+    <div class="box">1234</div>
+    <h1>나는 H1이야</h1>
+    <input><span>span</span>
+</body>
