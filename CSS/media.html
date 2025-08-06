@@ -1,0 +1,28 @@
+<style>
+    body {
+        background-color: skyblue;
+    }
+
+    @media ( max-width: 300px) {
+        body {
+            background-color: red;
+        }
+    }
+    @media (min-width:301px) and ( max-width: 500px) {
+        body {
+            background-color: yellow;
+        }
+    }
+
+    @media (min-width:501px) {
+        body {
+            background-color: green;
+        }
+    }
+</style>
+
+<body>
+    <p>
+        브라우저의 너비가 600 픽셀 이하에서는 배경 색상이 노란색으로 변경된다.
+    </p>
+</body>

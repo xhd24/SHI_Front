@@ -1,0 +1,31 @@
+<style>
+    .container {
+        display: flex;
+        height: 50vh;
+        gap: 10px;
+        align-items: flex-end;
+    }
+
+    .container>div {
+        height: 80px;
+        text-align: center;
+        line-height: 80px;
+        background-color: pink;
+        border: 1px solid red;
+    }
+
+    .container>:nth-child(1), .container>:nth-child(3) {
+        flex: 1;
+    }
+    .container>:nth-child(2) {
+        flex: 2;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <div>좌</div>
+        <div>중앙</div>
+        <div>우</div>
+    </div>
+</body>

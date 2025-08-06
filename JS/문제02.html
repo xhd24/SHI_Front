@@ -1,0 +1,92 @@
+<style>
+    div>div {
+        background-color: rgb(207, 232, 220);
+        border: 2px solid rgb(79, 185, 227);
+        padding: 10px;
+        border-radius: 5px;
+    }
+
+    .wrapper {
+        display: grid;
+        grid-gap: 10px;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 100px 100px 100px;
+    }
+
+    div>div:nth-child(1) {
+        grid-column: 1 / 3;
+        grid-row: 1;
+    }
+
+    div>div:nth-child(2) {
+        grid-column: 3;
+        grid-row: 1 / 3;
+    }
+
+    div>div:nth-child(3) {
+        grid-column: 2 / 4;
+        grid-row: 3;
+    }
+
+    div>div:nth-child(4) {
+        grid-column: 1;
+        grid-row: 2 / 4;
+    }
+</style>
+
+<body>
+    <div class="wrapper">
+        <div>A</div>
+        <div>B</div>
+        <div>C</div>
+        <div>D</div>
+        <div onclick="함수e()">E</div>
+        <script>
+            // document.querySelector(".wrapper > div:nth-child(1)").addEventListener("click", change);
+            // function change() {
+            //     document.querySelector(".wrapper> div:nth-child(1)").style.backgroundColor = "lightgray";
+            // }
+            // document.querySelector(".wrapper > div:nth-child(2)").addEventListener("click", change2);
+            // function change2() {
+            //     document.querySelector(".wrapper> div:nth-child(2)").style.backgroundColor = "lightgray";
+            // }
+            // document.querySelector(".wrapper > div:nth-child(3)").addEventListener("click", change3);
+            // function change3() {
+            //     document.querySelector(".wrapper> div:nth-child(3)").style.backgroundColor = "lightgray";
+            // }
+            // document.querySelector(".wrapper > div:nth-child(4)").addEventListener("click", change4);
+            // function change4() {
+            //     document.querySelector(".wrapper> div:nth-child(4)").style.backgroundColor = "lightgray";
+            // }
+            // document.querySelector(".wrapper > div:nth-child(5)").addEventListener("click", change5);
+            // function change5() {
+            //     document.querySelector(".wrapper> div:nth-child(5)").style.backgroundColor = "lightgray";
+            // }
+
+            const a = document.querySelector(".wrapper > :nth-child(1)");
+            const b = document.querySelector(".wrapper > :nth-child(2)");
+            const c = document.querySelector(".wrapper > :nth-child(3)");
+            const d = document.querySelector(".wrapper > :nth-child(4)");
+            const e = document.querySelector(".wrapper > :nth-child(5)");
+
+            a.addEventListener("click", 함수1);
+            function 함수1() {
+                a.style.backgroundColor = "lightgray";
+            };
+            b.addEventListener("click", 함수2);
+            function 함수2() {
+                b.style.backgroundColor = "lightgray";
+            };
+            c.addEventListener("click",() => {
+                c.style.backgroundColor = "lightgray";
+            });
+            d.addEventListener("click", () => {
+                d.style.backgroundColor = "lightgray";
+            });
+            function 함수e() {
+                e.style.backgroundColor = "lightgray";
+            };
+
+        </script>
+    </div>
+</body>

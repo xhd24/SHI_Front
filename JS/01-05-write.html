@@ -1,0 +1,22 @@
+<body>
+    <button type="button" onclick="openPopup()">팝업</button>
+    <button type="button" onclick="document.write(5 + 6)">계산</button>
+    <script>
+        function openPopup() {
+            const btn = document.querySelector("Button");
+            console.log(btn);
+            console.dir(btn);
+            btn.style.fontSize="3rem";
+            
+            //const : 자바 스크립트에서 상수를 선언하는 방법
+            const popup = window.open(''
+                ,
+                ''
+                , 'width=300px height=150px');
+            popup.document.write('<h1>Popup</h1>');
+            console.log(popup);
+            console.dir(popup);
+            console.error(popup);
+        }
+    </script>
+</body>

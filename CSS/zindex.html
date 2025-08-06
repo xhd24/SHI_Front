@@ -1,0 +1,32 @@
+<style>
+    div {
+        width: 100px;
+        height: 100px;
+        position: absolute;
+    }
+
+    #top {
+        background-color: red;
+        z-index: 3;
+    }
+
+    #center {
+        background-color: green;
+        top: 50px;
+        left: 50px;
+        z-index: 2;
+    }
+
+    #bottom {
+        background-color: blue;
+        top: 100px;
+        left: 100px;
+        z-index: 1;
+    }
+</style>
+
+<body>
+    <div id="top">top</div>
+    <div id="center">center</div>
+    <div id="bottom">bottom</div>
+</body>

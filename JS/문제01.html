@@ -1,0 +1,12 @@
+<body>
+    <button type="button" onclick="user()">확인</button>
+    <input type="text" name="userAddress">
+    <div id="result"></div>
+    <script>
+        function user() {
+            const name = document.querySelector("input");
+            document.querySelector("#result").innerText = "입력된 값: "+ name.value + " input의 name: "+ name.name;
+        }
+    </script>
+
+</body>
