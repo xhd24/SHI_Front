@@ -1,0 +1,17 @@
+<body>
+<span></span>
+  <script>
+    const users = [
+      { name: '유나', email: 'yuna@sample.com' },
+      { name: '지훈', email: 'jihoon@sample.com' },
+      { name: '수빈', email: 'soobin@sample.com' }
+    ];
+
+    /* 코드 작성 */
+    const span = document.querySelector('span');
+    span.innerHTML=users[0].name+'님의 이메일은 '+users[0].email+'<br/>'+
+    users[1].name+'님의 이메일은 '+users[1].email+'<br/>'+
+    users[2].name+'님의 이메일은 '+users[2].email+'<br/>'
+    span.style.backgroundColor = 'yellow';
+  </script>
+</body>

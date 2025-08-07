@@ -1,0 +1,23 @@
+<body>
+    <span></span>
+    <script>
+        const subjects = [
+            ['HTML', '웹 페이지 구조'],
+            ['CSS', '스타일 지정'],
+            ['JavaScript', '동적 기능 추가']
+        ];
+
+        const span = document.querySelector('span');
+        span.innerHTML = subjects[0][0] + ':' + subjects[0][1] + '<br/>' + subjects[1][0] + ':' + subjects[1][1] + '<br/>' + subjects[2][0] + ':' + subjects[2][1] + '\n';
+        span.style.backgroundColor = 'yellow';
+
+        let s1 = subjects[0];
+        console.log(s1[0] + ':' + s1[1]);
+        let s2 = subjects[1];
+        console.log(s2[0] + ':' + s2[1]);
+        let s3 = subjects[2];
+        console.log(s3[0] + ':' + s3[1]);
+
+    </script>
+
+</body>

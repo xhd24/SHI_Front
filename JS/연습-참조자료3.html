@@ -1,0 +1,46 @@
+<body>
+    <script>
+        const report = {
+            agency: "X-FILE",
+            data: {
+                agents: {
+                    alpha: {
+                        name: "Dana Scully",
+                        id: 101,
+                        logs: {
+                            missions: [
+                                { code: "M001", location: "Alaska", result: "success" },
+                                { code: "M002", location: "Nevada", result: "fail" },
+                            ],
+                            evaluation: {
+                                score: 88,
+                                status: "active"
+                            }
+                        }
+                    },
+                    beta: {
+                        name: "Fox Mulder",
+                        id: 102,
+                        logs: {
+                            missions: [
+                                { code: "M003", location: "Iowa", result: "success" },
+                                { code: "M004", location: "Area 51", result: "classified" },
+                            ],
+                            evaluation: {
+                                score: 92,
+                                status: "suspended"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        const dana = report.data.agents.alpha;
+        const mulder = report.data.agents.beta;
+        console.log("Fox Mulder 요원의 두 번째 미션 결과 (result) → "+mulder.logs.missions[1].result)
+        console.log("Dana Scully 요원의 평가 점수 (score) → "+dana.logs.evaluation.score);
+
+
+
+    </script>
+</body>
