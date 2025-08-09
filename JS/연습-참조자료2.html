@@ -1,9 +1,6 @@
 <body>
     <script>
-
         //파일을 가져와서 할 수 있는 방법이 없을까요??
-
-        
         year = {
             0: '시끄러운 또는 말 많은',
             1: '푸른',
@@ -55,12 +52,14 @@
             31: '은(는) 말이 없다',
         }
 
-        const birthday = "1999-11-18";
+        const birthday = "1974-07-03";
 
-        const byear = birthday.split('-')[0];
-        const bmonth = birthday.split('-')[1];
-        const bday = birthday.split('-')[2];
+        const byear = birthday.split('-')[0][3];//Number(birthday.substring(0,4));
+        const bmonth = Number(birthday.split('-')[1]);//Number(birthday.substring(5,7));
+        const bday = Number(birthday.split('-')[2]);//Number(birthday.substring(8,10));
 
-        console.log(year[byear[3]] + ' ' + month[bmonth] + day[bday]);
+
+        console.log(`${year[byear]} ${month[bmonth]}${day[bday]}`)
+        console.log(year[byear] + ' ' + month[bmonth] + day[bday]);
     </script>
 </body>

@@ -1,0 +1,15 @@
+<body>
+    <div class="label">
+    </div>
+    <div class="figure" style="width: 100px; height: 100px;"></div>
+    <script>
+        function callback() {
+            const label = document.querySelector('.label');
+            label.innerHTML = '<h2>모습 변경</h2>';
+            const figure = document.querySelector('.figure');
+            figure.style.backgroundColor = 'red';
+            figure.style.borderRadius = '100px';
+        }
+        setTimeout(callback, 2000);
+    </script>
+</body>

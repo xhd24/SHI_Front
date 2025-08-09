@@ -1,0 +1,15 @@
+<!--INTERVAL-->
+<body>
+    <div class="label">
+    </div>
+    <div class="figure" style="width: 100px; height: 100px;"></div>
+    <script>
+        function callback() {
+           const date= new Date();
+           const min =  date.getMinutes();
+           const sec = date.getSeconds();
+           document.querySelector('.figure').innerHTML=`${min}:${sec}`;
+        }
+        setInterval(callback, 1000);
+    </script>
+</body>

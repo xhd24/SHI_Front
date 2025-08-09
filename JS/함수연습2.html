@@ -1,0 +1,14 @@
+<body>
+    <script>
+        const f1 = function(x){
+            const msg = "f1에서 f2에 전달";
+            x(msg);
+        }
+
+        const f2 = function(msg) {
+            alert(msg);
+        }
+
+        f1(f2);
+    </script>
+</body>

@@ -1,0 +1,15 @@
+<body>
+    <script>
+        const calculator = function (list) {
+            let sum = 0;
+
+            for (let i = 0; i <list.length; i++) {
+                sum += list[i];
+            }
+
+            const avg = sum / list.length;
+            return avg
+        }
+        console.log(calculator([3, 7, 9, 11]))
+    </script>
+</body>

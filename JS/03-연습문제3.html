@@ -1,0 +1,42 @@
+<body>
+    <script>
+        let num = 12345;
+
+        const a = parseInt(num / 10000);
+        const b = Math.floor(parseInt(num % 10000) / 1000);
+        const c = Math.floor(parseInt(num % 1000) / 100);
+        const d = parseInt((num - a * 10000 - b * 1000 - c * 100) / 10);
+        const e = parseInt((num - a * 10000 - b * 1000 - c * 100) % 10);
+
+        //const b = parseInt((num-a*10000)/1000);
+        //const c = parseInt((num-a*10000-b*1000)/100);
+
+        const t5 = num % 10;
+        num = parseInt(num / 10);
+        const t4 = num % 10;
+        num = parseInt(num / 10)
+        const t3 = num % 10;
+        num = parseInt(num / 10)
+        const t2 = num % 10;
+        num = parseInt(num / 10);
+        const t1 = num;
+        console.log(t1, t2, t3, t4, t5)
+
+        console.log(a, b, c, d, e);
+        const res = a + b + c + d + e;
+        console.log(res);
+
+        num=12345;
+        const strNum = String(num);
+        const n1 = Number(strNum[0])
+        const n2 = Number(strNum[1])
+        const n3 = Number(strNum[2])
+        const n4 = Number(strNum[3])
+        const n5 = Number(strNum[4])
+        const res2 = n1 + n2 + n3 + n4 + n5;
+
+        console.log(res2)
+
+
+    </script>
+</body>

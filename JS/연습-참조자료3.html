@@ -37,8 +37,12 @@
         }
         const dana = report.data.agents.alpha;
         const mulder = report.data.agents.beta;
-        console.log("Fox Mulder 요원의 두 번째 미션 결과 (result) → "+mulder.logs.missions[1].result)
-        console.log("Dana Scully 요원의 평가 점수 (score) → "+dana.logs.evaluation.score);
+
+        const result = mulder.logs.missions[1].result;
+        const score = dana.logs.evaluation.score;
+
+        console.log(`Fox Mulder 요원의 두 번째 미션 결과 (result) → ${result}`)
+        console.log(`Dana Scully 요원의 평가 점수 (score) → ${score}`);
 
 
 

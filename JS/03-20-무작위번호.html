@@ -1,0 +1,22 @@
+<body>
+    <script>
+        while (true) {
+            const selected = [];
+            while (selected.length < 3) {
+                const num = parseInt(Math.random() * 45) + 1;
+                if (selected.indexOf(num) == -1) {//중복 숫자가 배열에 들어가는 것을 방지
+                    selected.push(num);
+                }
+            }
+            selected.sort((a,b)=>a-b);//오름차순 정렬
+            console.log(selected)
+
+            const lotto = [1, 8, 16];
+            if (lotto == selected.toString()) {
+                console.log('맞히기 성공');
+                break;
+            }
+        }
+
+    </script>
+</body>

@@ -1,0 +1,40 @@
+<body>
+    0-10 사이 숫자를 입력하세요: 
+    <input type="text" class="number"/>
+    <button type="submit" onclick="guess()"> 입력</button>
+    시도 횟수: <span></span>
+    <script>
+
+        //업데이트 요구사항 
+        // 1. input 태그를 사용하여 정답 입력
+        // 2. 정답 시도 횟수 출력
+
+        const input = parseInt(Math.random() * 10 + 1);//random시 0-1 사이 값이 무작위로 출력 -> *10 +1 해서 1-10으로 바꿔줌
+        let isContinue = true;
+        let cnt=0;
+        // while (isContinue) {
+        //     //let number = prompt("숫자를 입력하세요.");
+            
+        // }
+
+        function guess(){
+            console.log(input)
+            let number=document.querySelector('input').value;
+
+            if (input == number) {
+                cnt++;
+                document.querySelector('span').innerHTML = cnt;
+                alert("정답");
+                isContinue = false;
+            } else {
+                if (input > number) {
+                    alert("입력된 숫자가 더 적음");
+                } else {
+                    alert("입력된 숫자가 더 큼");
+                }
+                cnt++;
+                document.querySelector('span').innerHTML = cnt;
+            }
+        }
+    </script>
+</body>

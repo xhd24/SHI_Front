@@ -1,0 +1,26 @@
+<body>
+    <script>
+        const date = new Date();
+        let hour = date.getHours();
+        let min = date.getMinutes();
+        let sec = date.getSeconds();
+        console.log(date);
+        console.log("현재시각 : " + hour + "시" + min + "분" + sec + "초");
+        // if (hour < 12) {
+        //     document.body.style.backgroundImage = 'url(images/morning.webp)';
+        // } else if (hour < 18) {
+        //     document.body.style.backgroundImage = 'url(images/afternoon.jpg)';
+        // } else {
+        //     document.body.style.backgroundImage = 'url(images/evening.jpg)';
+        // }
+
+        //background는 단축 속성이기 때문에 url 없이 경로 지정 가능 (자동으로 url 래핑해줌), backgroundImage는 이미지만 담당하는 개별 속성이기 때문에 url 넣어줘야함.
+        if (hour < 12) {
+            document.body.style.background = 'images/morning.webp';
+        } else if (hour < 18) {
+            document.body.style.background = 'images/afternoon.jpg';
+        } else {
+            document.body.style.background = 'images/evening.jpg';
+        }
+    </script>
+</body>

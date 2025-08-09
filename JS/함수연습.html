@@ -1,0 +1,18 @@
+<body>
+    <script>
+        const f1 = function (x) {
+            //2. 
+            //f1 함수 내부에서는 넘겨받은 f2 함수가 x라는 이름으로 사용됨
+            x();
+        };
+        const f2 = function () {//콜백함수
+            alert("f2 출력");
+        };
+
+        f1(f2);
+
+        //1. f2실행
+        //f2();
+
+    </script>
+</body>==
