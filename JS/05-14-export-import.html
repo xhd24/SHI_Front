@@ -1,0 +1,15 @@
+<body>
+    <button onclick="plus2()">버튼</button>
+    <script>
+        function aaa(){
+
+        }
+        console.dir(window);
+    </script>
+    <script src="05-14.js"></script><!--그냥 js 불러오기-->
+    <script type="module" src="./05-14-main.js"></script><!--ex 모듈 불러오기-->
+    <script type="module">
+        import {plus} from './05-24-module.js';
+        plus();
+    </script>
+</body>

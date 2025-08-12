@@ -1,0 +1,40 @@
+<body>
+    <script>
+        class Student {
+            constructor(name, age, enrolled, score) {
+                this.name = name;
+                this.age = age;
+                this.enrolled = enrolled;
+                this.score = score;
+            }
+        }
+        const students = [
+            new Student('A', 29, true, 45),
+            new Student('B', 28, false, 80),
+            new Student('C', 30, true, 90),
+            new Student('D', 40, false, 66),
+            new Student('E', 18, true, 90),
+        ];
+
+        students.sort((a,b)=>{
+            return b.age-a.age;//나이 기준으로 내림차순 정렬
+        });
+
+        console.log(students);
+        let find = students.find((v)=>{
+            return v.score==90;
+        })
+
+        let fliter = students.filter((v)=>{
+            return v.enrolled==true;
+        })
+
+        let some = students.some((v)=> {
+            return v.score<50;
+        })
+
+        console.log(find);
+        console.log(fliter);
+        console.log(some);
+</script>
+</body>

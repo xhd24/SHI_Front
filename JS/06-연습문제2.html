@@ -1,0 +1,14 @@
+<body>
+    <script>
+        const array = [1, 2, 3, 4, 5];
+        // let temp = array[0];
+        // array[0]=array[array.length-1];
+        // array[array.length-1]=temp;
+
+        const first = array.shift();
+        const last = array.pop();
+        array.unshift(last);
+        array.push(first);
+        console.log(array);
+    </script>
+</body>

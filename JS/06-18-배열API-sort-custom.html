@@ -1,0 +1,9 @@
+<body>
+    <script>
+        const orderArray = [1, 3, 4, 2];
+        orderArray.sort(function (next, prev) {
+            return prev - next;// 내림차순, next-prev = 오름차순, -1: 대칭
+        });
+        console.log(`ordered array: ${orderArray}`);
+    </script>
+</body>

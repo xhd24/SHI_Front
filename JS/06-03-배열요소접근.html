@@ -1,0 +1,13 @@
+<body>
+    <script>
+        const animals = ['🐶','🐱','🐷'];
+        animals[animals.length] = '🐵';
+        animals.push('🐰');
+        animals.unshift('🐔');
+        //URL 형태의 API
+        //배열 API => 함수
+        animals.forEach((v,i,arr) => {
+            console.log(v,i,arr);
+        })
+    </script>
+</body>

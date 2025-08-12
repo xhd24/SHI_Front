@@ -1,0 +1,19 @@
+<body>
+    <script>
+        const max = (arr) => {
+            let output = arr[0];
+            // for(const value of arr){
+            //     if(value>output){
+            //         output=value;
+            //     }
+            // }
+
+            arr.forEach((v) => {
+                if(v>output) output = v;
+            });
+            return output;
+        };
+        console.log(max([1, 2, 3, 4]));
+    </script>
+    
+</body>
