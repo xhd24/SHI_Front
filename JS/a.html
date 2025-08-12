@@ -1,17 +1,33 @@
 <body>
     <script>
-        const f2 = function (pos) {
-            console.log(pos);
+        // const f2 = function (pos) {
+        //     console.log(pos);
+        //     const lat = pos.coords.latitude;
+        //     const lng = pos.coords.longitude;
+        //     console.log(lat, lng);
+        // }
+        // navigator.geolocation.getCurrentPosition(
+        //     f2,
+        //     (err) => console.error("위치 요청 실패:", err),
+        //     { enableHighAccuracy: true, maximumAge: 0, timeout: 5000 }
+        // );
+
+        console.log(1);
+        if(navigator.geolocation) {
+            console.log(33);
+            
+        } else {
+            console.log(55);
+            
+        }
+        navigator.geolocation.getCurrentPosition((pos)=>{
+            console.log(66);
+            
             const lat = pos.coords.latitude;
             const lng = pos.coords.longitude;
-            console.log(lat, lng);
-        }
-
-        navigator.geolocation.getCurrentPosition(
-            f2,
-            (err) => console.error("위치 요청 실패:", err),
-            { enableHighAccuracy: true, maximumAge: 0, timeout: 5000 }
-        );
+            console.log(lat,lng);
+        })
+        console.log(11);
 
         // const f2 = function() {
         //   alert('f2 in timeout');

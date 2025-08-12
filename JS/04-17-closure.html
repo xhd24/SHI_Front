@@ -1,0 +1,36 @@
+<body>
+    <script>//클로저 없는 버전
+        let seq = 0;
+        function sequence() {
+            console.log(seq);
+            seq++;
+            return seq;
+        }
+
+        window.addEventListener('blur', () => {
+            const count = sequence();
+            if (count > 5) {
+                alert('시험 종료!');
+                window.close();
+            }
+        });
+
+    </script>
+    <!-- <script> //클로저 있는 버전
+        function sequence() {
+            let seq = 0;
+            return function () {
+                seq++;
+                return seq;
+            };
+        }
+        const check = sequence();
+        window.addEventListener('blur', () => {
+            const count = check();
+            if (count > 5) {
+                alert('시험 종료!');
+                window.close();
+            }
+        });
+    </script> -->
+</body>

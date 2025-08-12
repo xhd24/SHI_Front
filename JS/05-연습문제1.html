@@ -1,0 +1,25 @@
+<body>
+    <script>
+        class User {
+            constructor(fName, lName, age) {
+                this.fName = fName;
+                this.lName = lName;
+                this.age = age;
+            }
+            get age() {
+                return this._age;
+            }
+            set age(age) {
+                if(age<0)age=0;  
+                this._age = age;
+            }
+            //Get과 set은 둘다 함께 정의해줘야함. 둘 중 하나만 만들면 동작 X
+
+        }
+
+        const user = new User('Steve', 'Job',57);
+        console.log(user.age);
+
+
+    </script>
+</body>

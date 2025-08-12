@@ -1,0 +1,19 @@
+<body>
+    <script>
+        const user = {
+            name: 'Bill',
+            age: 20,
+            hasCar: true,
+            schools: []
+        }
+
+        const schools = user.schools;
+        console.log(schools[0]);//값이 없는것까진 괜찮지만 그에 추가로 무언가 요청하면 에러
+
+        for (const key in user) {
+            const value = user[key];
+            console.log(key, value);
+        }
+
+    </script>
+</body>

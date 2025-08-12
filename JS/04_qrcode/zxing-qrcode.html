@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>ZXing QR 리더기 (모듈 + 리사이즈)</title>
+  <script type="module" src="zxing-drop-reader.js"></script>
+</head>
+<body>
+  <h2>QR 이미지를 드래그해서 올려보세요</h2>
+  <div id="drop-zone"></div>
+  <div id="qr-output" style="margin-top: 10px; font-weight: bold;"></div>
+
+  <script type="module">
+    import { initZxingQrDropReader } from './zxing-drop-reader.js';
+
+    initZxingQrDropReader({
+      dropTargetSelector: '#drop-zone',
+      outputSelector: '#qr-output'
+    });
+
+    window.onQrCodeDecoded = (text) => {
+      console.log('QR에서 읽은 값: ' + text);
+    };
+  </script>
+</body>
+</html>

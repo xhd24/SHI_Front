@@ -1,0 +1,31 @@
+<body>
+    <script>
+        function 초기화() {
+            let click = 0;
+            document.body.addEventListener('click',()=> {
+                click++;
+                alert(click);
+            })
+        }//외부 함수의 지역 변수(click)를 내부 함수(이벤트 리스너)가 참조하고, 그 내부 함수가 외부에서 실행되기 때문에 클로저임
+        초기화();
+
+        function a() {
+            let localVal = 0;
+            return () => {
+                return ++localVal;
+            }
+        }
+        const 함수1 = a();//함수1은 리턴되는 함수를 잡게 됨 -> closure 발생
+        console.log(함수());
+        console.log(함수());
+        console.log(함수());
+
+        function b() {
+            let 지역변수 = 0;
+            return ++지역변수;
+        }
+        const 함수2 = b();//이 경우 함수2에는 리턴 값이 저장된 것. 따라서 closure는 일어나지 않는다.
+
+
+    </script>
+</body>

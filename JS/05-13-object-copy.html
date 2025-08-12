@@ -1,0 +1,29 @@
+<body>
+    <script>
+        const user = { name: 'Bill', age: 20 };
+        console.log(user);
+
+        //방법1
+        const user2 = {};
+        for (const key in user) {
+            user2[key] = user[key];
+        }
+        //user2.name = 'Steve';//다른 객체의 값들엔 영향X
+        console.log(user2);
+
+        //방법2
+        const user3 = {};
+        Object.assign(user3, user);
+        //user3.age = 30;//다른 객체의 값들엔 영향X
+        console.log(user3);
+
+        console.log(user == user3);
+        console.log(user2 == user3);
+
+        //방법3
+        const user4 = { ...user };
+        console.log(user4);
+        console.log(user==user4);
+        
+    </script>
+</body>

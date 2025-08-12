@@ -1,0 +1,38 @@
+<body>
+    <script>
+        //지역변수는 사용 후에 메모리에서 제거됨
+        function a() {
+            let a = 10;
+            b();
+        }
+        function b() {
+            let b = 20;
+            console.log(b);
+        }
+
+
+        //4번 
+        const sum4 = (a, b) => {
+            return a + b;
+        }
+        console.log(sum4(9, 4));
+
+        //2번 표현식
+        const sum2 = function (a, b) {
+            return a + b;
+        }
+        console.log(sum2(3, 4));
+
+        //1번 선언식
+        console.log(sum(3, 4));
+        function sum(a, b) {//호이스팅 됨
+            return a + b;
+        }
+
+        //3번 화살표 함수
+        (a, b) => { return a + b; }
+        console.log(((a, b) => { return a + b; })(7, 8));
+        //실행시키기
+
+    </script>
+</body>

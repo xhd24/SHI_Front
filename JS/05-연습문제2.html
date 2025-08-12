@@ -1,0 +1,45 @@
+<body>
+    <script>
+        class Shape {
+            constructor(width, height, color) {
+                this.width = width;
+                this.height = height;
+                this.color = color;
+            }
+            draw() {
+                console.log(`draw`);
+            }
+            getArea() {
+                console.log(`getArea`)
+            }
+        }
+
+        class Rectangle extends Shape {
+            draw() {
+                return `drawing ${this.color}`;
+            }
+            getArea() {
+                return this.width*this.height;
+            }
+        }
+
+        class Triangle extends Shape {
+            draw() {
+                console.log('draw() => '+this.color)
+            }
+
+            getArea() {
+                console.log('getArea() => '+this.height*this.width);
+            }
+        }
+
+        const rect = new Rectangle(20,20,'blue');
+        console.log(rect.draw());
+        console.log(rect.getArea());
+
+        const tri = new Triangle(20,10,'red');
+        tri.draw();
+        tri.getArea();
+        
+    </script>
+</body>

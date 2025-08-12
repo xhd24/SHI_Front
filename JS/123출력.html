@@ -1,0 +1,17 @@
+<body>
+    <script>
+        function makeTimers() {
+            //지역변수
+            let count=1;
+
+            //반복문 내에 새로운 scope를 가지는 생성됨
+            //for 안에서 let을 쓰면 매 반복마다 새로운 count 변수가 생성되므로, 각 콜백이 다른 값을 기억합니다.
+            for (let count=1; count <= 3; count++) {
+                setTimeout(function () {
+                    console.log(count); // 현재는 4만 출력됨
+                }, count * 1000);
+            }
+        }
+        makeTimers();
+    </script>
+</body>

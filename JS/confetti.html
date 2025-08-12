@@ -1,0 +1,14 @@
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+<body>
+  <button onclick="fire()">폭죽</button>
+  <script>
+    function fire() {
+      confetti({
+        particleCount: 400,
+        spread: 200,
+        origin: { y: 0.8 }
+      });
+    }
+  </script>
+</body>

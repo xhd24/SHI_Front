@@ -1,0 +1,22 @@
+<body>
+    <script>
+        const article = {
+            num: 1,
+            title: 'A',
+            reply: [
+                { num: 3, title: 'A-3' },
+                { num: 2, title: 'A-2' },
+                { num: 1, title: 'A-1' }
+            ]
+        };
+        for(let key in article) {
+            let value = article[key];//typeof(value), typeof value 둘다 가능
+            if(typeof value =='object'){
+                for(let i=0;i<value.length;i++){//for(let key2 in value)도 가능
+                    console.log(value[i]);
+                }
+            } else console.log(key,value);
+            
+        }
+    </script>
+</body>

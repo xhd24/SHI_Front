@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <title>ZXing QR 리더기 (모듈 + 리사이즈)</title>
+  <script type="module" src="zxing-drop-reader.js"></script>
+</head>
+
+<body>
+  <h2>QR 이미지를 드래그해서 올려보세요</h2>
+  <div id="drop-zone"></div>
+  <div id="qr-output" style="margin-top: 10px; font-weight: bold;"></div>
+
+  <script type="module">
+    import { initZxingQrDropReader } from './zxing-drop-reader.js';
+
+    initZxingQrDropReader({
+      dropTargetSelector: '#drop-zone',
+      outputSelector: '#qr-output'
+    });
+
+    //8/9일 추첨 번호 확인
+    //QR Code 텍스트에 추첨 번호 추가
+    //결과 확인 페이지로 연결
+    window.onQrCodeDecoded = function (text) {
+      //https://m.dhlottery.co.kr/qr.do?method=winQr&v=1183q141820323543q111527313240q041517232736q041517232731
+      //추첨 번호 가져오기 = 데이터 수집
+      //추첨 번호 제공 API - http://ggoreb.com/api/lotto.jsp
+      // const idx = text.indexOf('1183');
+      // //text=text.replace('1183','1184'); //다른 방법
+      // text = text.substring(0, idx) + '1184' + text.substring(idx + 4, text.length);
+      const arr = text.split('&v=');
+      arr[1] = arr[1].substring(4);//4자리 이후 날려버리기
+      text = arr[0] +'&v=1184'+ arr[1];
+      text += 'q' + lotto; //Url에 1등 로또 번호 추가해줌
+
+      //location = text; //브라우저의 주소를 text로 이동 시킴
+      open(text, '', 'width=600px,height=800px'); // url을 팝업 창으로 띄움
+    }
+
+    let lotto = ''//전역 변수로 선언
+    const url = 'http://ggoreb.com/api/lotto.jsp';
+    //const data = fetch(url); // X: 비동기로 동작해서 비어있는 것을 보여주게 됨
+
+    fetch(url)//서버와 통신하는 도구
+      .then(function a(msg) {//비동기로 동작하는 fetch가 값을 가져올 때까지 기다리기 위함.
+        console.log(msg);
+        return msg.json();//데이터 가공해서(json 형태로 변환) 이어지는 then에 넘겨줌
+      })
+      .then(function b(msg) {
+        console.log(msg); //msg를 json 형태로 전달 받았음
+        lotto = msg.num1 + msg.num2 + msg.num3 + msg.num4 + msg.num5 + msg.num6; //1등 로또 번호
+        console.log(lotto);
+      });
+
+
+
+  </script>
+</body>
+
+</html>
