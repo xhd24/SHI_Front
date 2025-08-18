@@ -1,0 +1,18 @@
+<body>
+    <script>
+        // const data = fetch();
+        // console.log(data);
+
+        const promise = new Promise((resolve, reject) => {
+            console.log('작업중...');
+            setTimeout(() => {
+                resolve('작업완료');
+                //reject(new Error('응답없음'));
+            }, 2000);
+        });
+        promise.then((결과)=>{
+            //마무리 작업
+            console.log(결과);
+        })
+    </script>
+</body>

@@ -1,0 +1,25 @@
+<body>
+    <script>
+        const url = "https://api.openweathermap.org/data/2.5/weather?lat=35.1728639953646&lon=129.130680529903&units=metric&appid=6edee3c2aa182bc44d18ccb204c98a31";
+        const res = fetch(url);
+        //const data = res.json();
+        //fetch가 비동기여서, 이렇게 작성하면 data가 정상으로 작동하지 않음
+
+       const res2 = res.then((data) => {
+            return data.json();
+        })
+
+        res2.then((data)=>{
+            const desc = data.weather[0].description;
+            const icon = data.weather[0].icon;
+            const temp = data.main.temp;
+            let image = `http://openweathermap.org/img/wn/${icon}@2x.png`
+            console.log(desc,icon,temp);
+            const city = data.name
+            document.body.innerHTML+=`${city} / ${desc} / ${temp} / <img src="${image}"/>`;
+
+        });
+
+    
+    </script>
+</body>

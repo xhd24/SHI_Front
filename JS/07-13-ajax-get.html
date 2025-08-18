@@ -1,0 +1,14 @@
+<body>
+    <div id="content"></div>
+    <script>
+        const ajax = fetch('http://ggoreb.com/ajax/html/data1.jsp');
+        ajax.then(res => {
+            //볼 수 있는 형태로 가공
+            console.log(res);
+            return res.text();//비동기로 동작
+        }).then(result => {
+            console.log(result);
+            document.querySelector('#content').innerHTML += result;
+        });
+    </script>
+</body>

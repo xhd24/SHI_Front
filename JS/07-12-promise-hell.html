@@ -1,0 +1,42 @@
+<body>
+    <div id="result"></div>
+    <script>
+        const result = document.querySelector("#result");
+        function eat() {
+            return new Promise((resolve) => {
+                setTimeout(() => {
+                    result.innerHTML += `<p> 밥을 먹어요</p>`;
+                    resolve();
+                }, 1000);
+            });
+        }
+        function drink() {
+            return new Promise(resolve => {
+                setTimeout(() => {
+                    result.innerHTML += `<p> 물을 마셔요</p>`;
+                    resolve();
+                }, 1000);
+            });
+        } function cleanTable() {
+            return new Promise(resolve => {
+                setTimeout(() => {
+                    result.innerHTML += `<p> 밥그릇을 치워요</p>`;
+                    resolve();
+                }, 1000);
+            });
+        }
+        function wash() {
+            return new Promise((resolve) => {
+                setTimeout(() => {
+                    result.innerHTML += `<p> 설거지를 해요</p>`;
+                    resolve();
+                }, 1000);
+            });
+        }
+        eat()
+            .then(drink);
+            // .then(cleanTable)
+            // .then(wash)
+            // .then(() => result.innerHTML += `<p>종료</p>`);
+    </script>
+</body>

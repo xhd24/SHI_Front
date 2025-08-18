@@ -1,0 +1,31 @@
+<body>
+    <div id="result"></div>
+    <script>
+        const result = document.querySelector("#result");
+        function eat() {
+            return new Promise((res, rej) => {
+                setTimeout(() => {
+                    console.log('🍽️ 밥을 먹어요');
+                    result.innerHTML += `<p> '🍽️ 밥을 먹어요</p>`;
+                    res("밥");
+                }, 1000);
+            })
+        }
+        function wash(msg) {
+            return new Promise((res, rej) => {
+                setTimeout(() => {
+                    console.log('🧼 설거지를 해요');
+                    result.innerHTML += `<p>${msg} 이후 🧼 설거지를 해요</p>`;
+                    res("설거지");
+                }, 1000);
+            })
+        }
+
+        eat()
+            .then(wash)
+            .then((msg) => {
+                result.innerHTML += msg+ '종료';
+            });
+
+    </script>
+</body>

@@ -1,0 +1,39 @@
+<body>
+    <div id="show"></div>
+    <script>
+        const show = document.querySelector("#show");
+        const getHen = () => {
+            return new Promise((res, rej) => {
+                setTimeout(() => {
+                    show.innerHTML += '🐓 '
+                    res('🐓');
+                }, 1000)
+            })
+        };
+
+        const getEgg = (hen) => {
+            return new Promise((res, rej) => {
+                setTimeout(() => {
+                    show.innerHTML += `<br/>${hen} >> 🥚 `;
+                    res(`${hen} >> 🥚`);
+                }, 1000)
+            })
+        };
+
+        const cook = (egg) => {
+            return new Promise((res, rej) => {
+                setTimeout(() => {
+                    show.innerHTML += `<br/>${egg} >> 🍳`;
+                    res('>> 🍳');
+                }, 1000)
+            })
+        };
+
+        getHen()
+            .then(getEgg)
+            .then(cook)
+
+        
+
+    </script>
+</body>
