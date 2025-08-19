@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>연산/함수</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <nav class="container">
+    <a href="./index.html">홈</a>
+    <a class="active" href="./calc.html">연산/함수</a>
+    <a href="./users.html">사용자(fetch)</a>
+    <a href="./todos.html">할 일(localStorage)</a>
+    <a href="./prefs.html">설정(쿠키)</a>
+  </nav>
+
+  <main class="container">
+    <h2>연산</h2>
+    <div class="card">
+      <label>A: <input id="a" type="number" value="2"></label>
+      <label>B: <input id="b" type="number" value="3"></label>
+      <button onclick="showAddResult()">더하기</button>
+      <div id="addOut" class="list"></div>
+    </div>
+
+    <h3>통계</h3>
+    <div class="card">
+      <details open>
+        <summary><strong>배열 전체 (JSON 보기)</strong></summary>
+        <pre id="peopleRaw" style="white-space:pre-wrap; margin:8px 0;"></pre>
+      </details>
+
+      <div id="peopleCards" class="list" style="margin-top:8px;"></div>
+
+      <hr style="border:none; border-top:1px solid #e5e7eb; margin:12px 0;" />
+
+      <div id="stats" class="list"></div>
+    </div>
+  </main>
+
+  <script>
+    function showAddResult(){
+      // 코드 작성
+      // - A, B 합을 구해 #addOut에 출력    
+      const valA = parseInt(document.querySelector('#a').value);
+      const valB = parseInt(document.querySelector('#b').value);  
+      document.querySelector('#addOut').innerHTML = valA+valB;
+    }
+
+    const people = [
+      { name: 'Lee',  age: 20, job: 'Student' },
+      { name: 'Kim',  age: 32, job: 'Designer' },
+      { name: 'Park', age: 26, job: 'Developer' },
+      { name: 'Choi', age: 41, job: 'Manager' },
+    ];
+
+    function renderPeopleInfo(){
+      document.querySelector('#peopleRaw').textContent =
+        JSON.stringify(people, null, 2);
+        let sum = 0;
+        let max = people[0];
+
+        people.forEach((p)=>{
+          sum+=p.age;
+          if(p.age>max.age){
+            max=p;
+          }
+          document.querySelector('#peopleCards').innerHTML+=`
+          <div class="card">
+            <strong>${p.name}</strong>
+            <div class="small">age: ${p.age}</div>
+            <div class="small">job: ${p.job}</div>
+          </div>`
+        });
+        let avg = sum/people.length;
+        document.querySelector('#stats').innerHTML=`
+        <div> <b>평균 나이: </b> ${avg}</div>
+        <div> <b>가장 나이가 많은 사람: </b> ${max.name} (${max.age})</div>`
+
+      // 코드 작성
+      // - 명단 출력
+      // 출력 예시
+      // <div class="card">
+      //   <strong>${p.name}</strong>
+      //   <div class="small">age: ${p.age}</div>
+      //   <div class="small">job: ${p.job}</div>
+      // </div>
+
+      // 코드 작성
+      // - 평균 나이 구하기
+      // - 가장 나이가 많은 사람 찾기
+      // - #stats에 출력
+    }
+
+    renderPeopleInfo();
+  </script>
+</body>
+</html>

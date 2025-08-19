@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>할 일(localStorage)</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <nav class="container">
+    <a href="./index.html">홈</a>
+    <a href="./calc.html">연산/함수</a>
+    <a href="./users.html">사용자(fetch)</a>
+    <a class="active" href="./todos.html">할 일(localStorage)</a>
+    <a href="./prefs.html">설정(쿠키)</a>
+  </nav>
+
+  <main class="container">
+    <h2>할 일</h2>
+    <form id="todoForm" class="card">
+      <input name="title" placeholder="할 일" required />
+      <button>추가</button>
+    </form>
+    <ul id="todoList" class="list"></ul>
+  </main>
+
+  <script>
+    const KEY = 'mini.todos'; // localStorage에 저장될 키
+    const form = document.querySelector('#todoForm');
+    const list = document.querySelector('#todoList');
+
+    // localStorage에서 배열 읽기
+    function loadTodos() {
+      const text = localStorage.getItem(KEY);
+      if (!text) {
+        return [];
+      }
+      return JSON.parse(text);
+    }
+
+    // localStorage에 배열 저장
+    function saveTodos(todos) {
+      localStorage.setItem(KEY, JSON.stringify(todos));
+    }
+
+    // 화면에 렌더링
+    function render() {
+      const todos = loadTodos();
+      let html = '';
+
+      for (let i = 0; i < todos.length; i++) {
+        const t = todos[i];
+        html +=
+          `<li class="card">
+            <span>${t.title}</span>
+            <div>
+              <button data-act="del" data-id="${t.id}">삭제</button>
+            </div>
+          </li>`;
+      }
+
+      list.innerHTML = html;
+    }
+
+    form.onsubmit = function(e) {
+
+      // 코드 작성
+      // - 할 일 추가
+      //   1) sessionStorage에서 todos 조회
+      //   2) title 데이터 읽기
+      //   3) {id: 현재시각, title: 할일} 형태의 객체 생성
+      //   4) todos 배열에 추가 + 저장
+
+      form.reset();
+      render();
+    };
+
+    // 삭제
+    list.onclick = function(e) {
+      const act = e.target.getAttribute('data-act');
+      if (act === 'del') {
+        const id = Number(e.target.getAttribute('data-id'));
+        const todos = loadTodos();
+        const next = [];
+
+        for (let i = 0; i < todos.length; i++) {
+          if (todos[i].id !== id) {
+            next.push(todos[i]);
+          }
+        }
+        saveTodos(next);
+        render();
+      }
+    };
+
+    render();
+  </script>
+</body>
+</html>

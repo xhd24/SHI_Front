@@ -1,0 +1,50 @@
+<body>
+    <div id="result"></div>
+    <script>
+        const result = document.querySelector("#result");
+
+        function delay(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
+
+        function finish() {
+            console.log("종료!");
+        }
+
+        async function eat() {
+            //async await 방법
+            await delay(1000);
+            console.log('🍽️ 밥을 먹어요');
+            result.innerHTML += `<p> '🍽️ 밥을 먹어요</p>`;
+
+            //Promise, then 방법
+            // await delay(1000).then(() => {
+            //     console.log('🍽️ 밥을 먹어요');
+            //     result.innerHTML += `<p> '🍽️ 밥을 먹어요</p>`;
+            // });
+        }
+
+        async function wash() {
+            await delay(1000);
+            console.log('🧼 설거지를 해요');
+            result.innerHTML += `<p>🧼 설거지를 해요</p>`;
+        }
+
+        async function run(){
+            await eat();
+            await wash();
+        }
+
+        run();
+
+        // eat().then(()=>{
+        //     wash();
+        // });
+
+
+        //***await는 async 안에서만 사용해야한다. promise ->async, then -> await
+
+
+
+    </script>
+</body>

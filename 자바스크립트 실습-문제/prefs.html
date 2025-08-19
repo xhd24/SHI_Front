@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>설정(쿠키)</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <nav class="container">
+    <a href="./index.html">홈</a>
+    <a href="./calc.html">연산/함수</a>
+    <a href="./users.html">사용자(fetch)</a>
+    <a href="./todos.html">할 일(localStorage)</a>
+    <a class="active" href="./prefs.html">설정(쿠키)</a>
+  </nav>
+
+  <main class="container">
+    <h2>방문자 이름 & 팝업 설정(쿠키)</h2>
+
+    <div class="card">
+      <form id="nameForm">
+        <label>이름: <input name="visitor" placeholder="홍길동" required></label>
+        <button>저장</button>
+      </form>
+      <p id="hello" class="small">쿠키에 이름을 저장하면 인사말이 보입니다.</p>
+    </div>
+
+    <div class="card">
+      <p><button id="openPopup">팝업 열기</button></p>
+      <label>
+        <input id="autoPopup" type="checkbox">
+        다음 방문 시 자동으로 팝업 열기
+      </label>
+      <p class="small">체크하면 쿠키에 <code>autoPopup=1</code>이 저장됩니다.</p>
+    </div>
+  </main>
+
+  <script>
+    const hello = document.querySelector('#hello');
+    const all = document.cookie.split('; ');
+    let savedName = '';
+    
+    // 코드 작성
+    // - 쿠키에 저장되어 있는 visitor 값 조회 -> savedName 변수에 저장
+
+    if (savedName) {
+      hello.textContent = savedName + '님, 반갑습니다!';
+    }
+
+    const nameForm = document.querySelector('#nameForm');
+    nameForm.onsubmit = function (e) {
+      // 코드 작성
+      // - 방문자 이름 확인 input의 value
+      const name = ''
+
+      if (!name) return;
+
+      const days = 14;
+      const exp = new Date(Date.now() + days * 24 * 60 * 60 * 1000).toUTCString();
+      document.cookie =
+        `visitor=${name}; expires=${exp}; path=/`;
+
+      hello.textContent = `${name}님, 저장되었습니다!`;
+    };
+
+    const autoPopup = document.querySelector('#autoPopup');
+    const openBtn = document.querySelector('#openPopup');
+
+    let autoVal = '';
+    for (let j = 0; j < all.length; j++) {
+      const pair2 = all[j].split('=');
+      if (pair2[0] === 'autoPopup') {
+        autoVal = pair2.slice(1).join();
+        break;
+      }
+    }
+    if (autoVal === '1') {
+      autoPopup.checked = true;
+      openSimplePopup();
+    }
+
+    // 체크 변경 시 쿠키 저장
+    autoPopup.onchange = function () {
+      const value = '';
+      // 코드 작성
+      // - autoPopup이 체크되어 있으면 
+      //   value의 값을 1 아니면 0 입력
+
+      const days2 = 7;
+      const exp2 = new Date(Date.now() + days2 * 24 * 60 * 60 * 1000).toUTCString();
+      document.cookie =
+        `autoPopup=${value}; expires=${exp2}; path=/`;
+    };
+
+    openBtn.onclick = function () {
+      openSimplePopup();
+    };
+
+    function openSimplePopup() {
+
+      const win = window.open('', 'simplePopup', `width=400 height=300`);
+
+      if (!win) {
+        alert('팝업이 차단되었습니다. 브라우저 팝업 허용을 확인해 주세요.');
+        return;
+      }
+
+      const now = new Date().toLocaleString();
+      
+      // 코드 작성
+      // - 닫기 버튼 클릭 시 창 종료
+      win.document.write(
+        `<style>body{font-family:system-ui,Arial,sans-serif;margin:0;padding:16px} .small{color:#6b7280;font-size:12px}</style>
+        </head><body>
+          <h3>안내 팝업</h3>
+        <p class="small">열린 시각: ${now}</p>
+        <p><button>닫기</button></p>`
+      );
+      win.document.close();
+    }
+  </script>
+</body>
+</html>

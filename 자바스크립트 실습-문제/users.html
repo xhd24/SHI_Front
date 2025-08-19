@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>사용자(fetch)</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+
+<body>
+  <nav class="container">
+    <a href="./index.html">홈</a>
+    <a href="./calc.html">연산/함수</a>
+    <a class="active" href="./users.html">사용자(fetch)</a>
+    <a href="./todos.html">할 일(localStorage)</a>
+    <a href="./prefs.html">설정(쿠키)</a>
+  </nav>
+
+  <main class="container">
+    <h2>사용자 목록</h2>
+    <input id="q" placeholder="이름/이메일 검색" />
+    <div id="list" class="list">
+
+    </div>
+  </main>
+
+  <script>
+    async function userlist() {
+      const url = "https://jsonplaceholder.typicode.com/users";
+      const res = await fetch(url);
+      const res2 = await res.json();
+
+      res2.forEach(v => {
+        const name = v.name;
+        const email = v.email;
+        const address = v.address.city;
+
+        document.querySelector('.list').innerHTML += `
+              <div class="card">
+                <strong>${name}</strong> <span class="small">${email}</span><br/>
+                <span class="small">${address}</span>
+              </div>
+              `;
+      })
+      
+
+      const inputField = document.getElementById('q');
+      inputField.addEventListener('input', () => {
+        const val = inputField.value;
+
+        let html = '';
+        res2.forEach(v => {
+          const name = v.name;
+          const email = v.email;
+          const address = v.address;
+
+
+          if (name.toLowerCase().includes(val.toLowerCase()) || email.toLowerCase().includes(val.toLowerCase())) {
+            html += `
+              <div class="card">
+                <strong>${name}</strong> <span class="small">${email}</span><br/>
+                <span class="small">${email}</span>
+              </div>
+              `;
+          }
+
+        })
+        document.querySelector('.list').innerHTML = html;
+
+      })
+
+
+
+
+
+    }
+    userlist();
+
+
+
+
+    // 코드 작성
+    // - https://jsonplaceholder.typicode.com/users 데이터 가져오기
+    // - #list에 출력
+    // 출력 예시
+    // <div class="card">
+    //   <strong>이름 name</strong> <span class="small">이메일 email</span><br/>
+    //   <span class="small">주소 중 도시 address city</span>
+    // </div>
+
+    // 코드 작성
+    // - 이름/이메일을 검색하면 해당 결과만 출력
+
+  </script>
+</body>
+
+</html>
