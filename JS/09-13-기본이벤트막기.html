@@ -1,0 +1,11 @@
+<body>
+    <img src="https://placecats.com/millie/300/150" alt="">
+</body>
+<script>
+    const imgs = document.querySelectorAll('img')
+    imgs.forEach((img) => {
+        img.addEventListener('contextmenu', (event) => {
+            event.preventDefault()
+        });
+    });
+</script>

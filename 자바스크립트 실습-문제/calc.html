@@ -73,6 +73,20 @@
             <div class="small">job: ${p.job}</div>
           </div>`
         });
+        //맵 사용하는 방법
+        // function renderPeopleInfo(){
+        //   document.qquerySelector("#peopleCards")
+        //   .innerHTML=people.map((p)=>{
+        //     return `
+        //   <div class="card">
+        //     <strong>${p.name}</strong>
+        //     <div class="small">age: ${p.age}</div>
+        //     <div class="small">job: ${p.job}</div>
+        //   </div>`
+        //   }).join();
+        // }
+
+
         let avg = sum/people.length;
         document.querySelector('#stats').innerHTML=`
         <div> <b>평균 나이: </b> ${avg}</div>

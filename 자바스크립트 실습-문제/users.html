@@ -26,6 +26,22 @@
   </main>
 
   <script>
+    async function get() {
+      const res = await fetch(url);
+      const res2 = await res.json();
+      let code='';
+      for (let d of data) {
+        const name = d.name;
+        const email = d.email;
+        const city = d.address.city;
+        code+=`<div class="card">
+                <strong>${name}</strong> <span class="small">${email}</span><br/>
+                <span class="small">${city}</span>
+              </div>`;
+      }
+      document.querySelector('#list').innerHTML=code;
+    }
+
     async function userlist() {
       const url = "https://jsonplaceholder.typicode.com/users";
       const res = await fetch(url);
@@ -43,7 +59,6 @@
               </div>
               `;
       })
-      
 
       const inputField = document.getElementById('q');
       inputField.addEventListener('input', () => {

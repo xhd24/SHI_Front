@@ -1,0 +1,39 @@
+<body>
+    <script src="http://ggoreb.com/dt/js/cookie.js"></script>
+    <script>
+        //팝업창 - 오늘 하루 이 창 열지 않음
+        //1. 쿠키에 저장된 값 확인
+        //2. 값이 없다면 팝업창 열기 - open()
+        //3. 팝업창을 종료할 때 '열지 않기' 쿠키에 값 저장 
+        // close()
+
+        //쿠키값 확인하기
+        // const cookie = document.cookie;
+        // console.log(cookie);
+        // const cs = cookie.split(";");
+        // console.log(cs);
+        // for (let c of cs) {
+        //     const [k,v] = c.split("=");
+        //     if(k==" key2"){
+        //         console.log(v);
+        //         break;
+        //     }
+
+        // }
+
+        const value = getCookie("popup");
+        if (!value) {
+            //문서, 팝업창의 이름, 창의 크기 등 옵션
+            open('09-child.html', '', 'width=300 height=200');
+        }
+        // console.log(value);
+
+
+        // setCookie('popup',"done",60*24);
+
+
+
+       
+
+    </script>
+</body>

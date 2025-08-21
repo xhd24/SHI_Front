@@ -1,0 +1,14 @@
+<body>
+    <script>
+        document.cookie = 'key1=value1;';
+        document.cookie = 'key2=value2;expires=Sun, 01 Jan 2040 00:00:00 GMT';
+        const date = new Date();
+        console.log(date.toUTCString());
+        console.log(Date.now()+1*60*1000);
+        
+        const date2 = new Date(Date.now()+1*60*1000);
+        console.log(date2);
+        
+        document.cookie = 'key3=value2;expires='+date2;
+    </script>
+</body>
